@@ -1,0 +1,63 @@
+
+import java.util.Scanner;
+
+
+public class metricConverter {
+    public static void main(String[] args) {
+        int selectorInput;
+        double userInput;
+        double output;
+        try (Scanner sc = new Scanner(System.in)) {
+            boolean flag = true;
+
+            while (flag) { 
+                System.out.println("What measurement would you like to convert?");
+                System.out.println("Enter 0-4");
+                System.out.println("0 = Exit");
+                System.out.println("1 = lbs -> kg");
+                System.out.println("2 = feet -> meters");
+                System.out.println("3 = miles -> kilometers");
+                System.out.println("4 = fahrenheit -> celsius");
+
+                selectorInput = sc.nextInt();
+                switch (selectorInput) {
+                    case 0 -> {
+                        flag = false;
+                    }
+                    case 1 -> {
+                        System.out.println("Converting Pounds to Kilograms");
+                        System.out.print("Enter a float in pounds to convert: ");
+                        userInput = sc.nextDouble();
+                        output = userInput / 2.20462;
+                        System.out.println(userInput + " lbs = " + output + " kg\n");
+                    }
+                    case 2 -> {
+                        System.out.println("Converting Feet to Meters");
+                        System.out.print("Enter a float in feet to convert: ");
+                        userInput = sc.nextDouble();
+                        output = userInput / 3.28084;
+                        System.out.println(userInput + " ft = " + output + " m\n");
+                    }
+                    case 3 -> {
+                        System.out.println("Converting Miles to Kilometers");
+                        System.out.print("Enter a float in miles to convert: ");
+                        userInput = sc.nextDouble();
+                        output = userInput * 1.6093445;
+                        System.out.println(userInput + " miles = " + output + " km\n");
+                    }
+                    case 4 -> {
+                        System.out.println("Converting Fahrenheit to Celsius");
+                        System.out.print("Enter a float in fahrenheit to convert: ");
+                        userInput = sc.nextDouble();
+                        output = (userInput - 32) / 1.8;
+                        System.out.println(userInput + " F = " + output + " C\n");
+                    }
+                    default -> {
+                        System.out.println("Error: Please only enter an integer 0-4");
+                    }
+                }
+            }
+        }
+        
+    }
+}
